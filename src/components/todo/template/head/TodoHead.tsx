@@ -12,11 +12,9 @@ const TodoHead: React.FC = () => {
 export default TodoHead;
 
 const HeadBlock = styled.View`
-  flex: 1;
+  flex: 2;
   justify-content: center;
   align-items: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
   background-color: #3c4858;
 `;
 

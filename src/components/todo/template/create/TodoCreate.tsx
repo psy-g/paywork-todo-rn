@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
+import Button from '../../../common/Button';
+
 const TodoCreate = () => {
   return (
     <CreateBlock>
-      <CreateBtn>
-        <BtnText>Add a new task</BtnText>
-      </CreateBtn>
+      <Button title="Add a new task" bgColor="#33bb77" btnWidth="50%" />
     </CreateBlock>
   );
 };
@@ -18,15 +18,4 @@ const CreateBlock = styled.View`
   justify-content: center;
   align-items: center;
   background-color: #3c4858;
-`;
-
-const CreateBtn = styled.TouchableOpacity`
-  background: #33bb77;
-  width: 50%;
-  border-radius: 10px;
-`;
-
-const BtnText = styled.Text`
-  text-align: center;
-  font-size: 20px;
 `;
