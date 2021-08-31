@@ -1,17 +1,20 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+// import { faTrashAlt, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 interface StyledButtonProps {
   onPress?: any;
   bgColor?: any;
-  title?: any;
+  title?: string | null;
   btnWidth?: any;
+  btnIcon?: any;
 }
 
-const Button: React.FC<StyledButtonProps> = ({ onPress, bgColor, title, btnWidth }) => {
+const Button: React.FC<StyledButtonProps> = ({ onPress, bgColor, title, btnWidth, btnIcon }) => {
   return (
     <ButtonContainer onPress={onPress} bgColor={bgColor} btnWidth={btnWidth}>
-      <ButtonText>{title}</ButtonText>
+      {title ? <ButtonText>{title}</ButtonText> : <Icon icon={btnIcon}></Icon>}
     </ButtonContainer>
   );
 };
@@ -28,4 +31,9 @@ const ButtonContainer = styled.TouchableOpacity<StyledButtonProps>`
 const ButtonText = styled.Text`
   font-size: 16px;
   text-align: center;
+`;
+
+const Icon = styled(FontAwesomeIcon)`
+  justify-content: center;
+  align-items: center;
 `;

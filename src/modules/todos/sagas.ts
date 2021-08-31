@@ -5,7 +5,8 @@ import { getTodosSuccess, getTodosError, GET_TODOS_START } from './action';
 
 function* getTodos() {
   const todos: AxiosResponse = yield call(() =>
-    axios.get('http://jsonplaceholder.typicode.com/users'),
+    // axios.get('http://jsonplaceholder.typicode.com/users'),
+    axios.get('http://10.0.2.2:3000/todoList'),
   );
   // const todos: AxiosResponse = axios.get('http://localhost:3000/todoList');
 

@@ -16,7 +16,7 @@ export const useTodoService = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTodosStart());
+    // dispatch(getTodosStart());
   }, [dispatch]);
 
   return {
