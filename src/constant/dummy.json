@@ -1,0 +1,17 @@
+[
+  { "id": 1, "content": "리액트 네이티브", "isCheck": true },
+  { "id": 2, "content": "타입 스크립트", "isCheck": false },
+  { "id": 3, "content": "리덕스", "isCheck": false },
+  { "id": 4, "content": "코어 자바스크립트", "isCheck": false },
+  { "id": 5, "content": "컨텍스트", "isCheck": true },
+  { "id": 6, "content": "리액트 네이티브", "isCheck": true },
+  { "id": 7, "content": "타입 스크립트", "isCheck": false },
+  { "id": 8, "content": "리덕스", "isCheck": false },
+  { "id": 9, "content": "코어 자바스크립트", "isCheck": false },
+  { "id": 10, "content": "컨텍스트", "isCheck": false },
+  { "id": 11, "content": "리액트 네이티브", "isCheck": true },
+  { "id": 12, "content": "타입 스크립트", "isCheck": false },
+  { "id": 13, "content": "리덕스", "isCheck": false },
+  { "id": 14, "content": "코어 자바스크립트", "isCheck": false },
+  { "id": 15, "content": "컨텍스트", "isCheck": false }
+]
