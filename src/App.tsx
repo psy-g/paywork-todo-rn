@@ -1,20 +1,21 @@
 import React from 'react';
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import createSagaMiddleware from 'redux-saga';
-import { composeWithDevTools } from 'redux-devtools-extension';
-
+// import { createStore, applyMiddleware } from 'redux';
+// import createSagaMiddleware from 'redux-saga';
+// import { composeWithDevTools } from 'redux-devtools-extension';
+import Store from './store';
 import TodoContainer from './components/todo/TodoContainer';
 
-import rootReducer, { rootSaga } from './modules';
+// import rootReducer, { rootSaga } from './modules';
+// import rootReducer from './modules';
 
-const sagaMiddleware = createSagaMiddleware();
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
-sagaMiddleware.run(rootSaga);
+// const sagaMiddleware = createSagaMiddleware();
+// const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
+// sagaMiddleware.run(rootSaga);
 
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
+    <Provider store={Store}>
       <TodoContainer />
     </Provider>
   );
