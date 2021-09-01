@@ -18,6 +18,7 @@ const ModalComponent: React.FC<StyledModalProps> = ({
   modalVisible,
   onTouchEnd,
   modalHeader,
+  modalBody,
   onPress,
   setState,
 }) => {
@@ -30,14 +31,19 @@ const ModalComponent: React.FC<StyledModalProps> = ({
               <ModalText>{modalHeader}</ModalText>
             </ContentHeader>
             <ContentBody>
-              <InputForm
-                placeholder="할 일을 입력해주세요"
-                onChangeText={(input) => setState(input)}></InputForm>
+              {setState ? (
+                <InputForm
+                  placeholder="할 일을 입력해주세요"
+                  onChangeText={(input) => setState(input)}
+                />
+              ) : (
+                <ModalText>{modalBody}</ModalText>
+              )}
             </ContentBody>
           </ContentWrapper>
           <BtnWrapper onTouchEnd={onTouchEnd}>
-            <Button onPress={onPress} title="확인" bgColor="#bba733" btnWidth="30%" />
-            <Button title="취소" bgColor="#33bb77" btnWidth="30%" />
+            <Button onPress={onPress} title="확인" bgColor="#33bb77" btnWidth="30%" />
+            <Button title="취소" bgColor="#f44336" btnWidth="30%" />
           </BtnWrapper>
         </Space>
       </Container>
@@ -93,6 +99,7 @@ const ModalText = styled.Text`
 `;
 
 const InputForm = styled.TextInput`
-  background-color: skyblue;
-  color: black;
+  background-color: #6f42c1;
+  color: #adb5bd;
+  font-weight: bold;
 `;

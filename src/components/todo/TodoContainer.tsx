@@ -7,12 +7,12 @@ import TodoCreate from './template/create/TodoCreate';
 import TodoList from './template/list/TodoList';
 
 const TodoContainer: React.FC = () => {
-  const { todoState, addTodo, delTodo } = useTodoService();
+  const { todoState, addTodo, delTodo, toggleTodo } = useTodoService();
 
   return (
     <Container>
       <TodoHead />
-      <TodoList todos={todoState} delTodo={delTodo} />
+      <TodoList todos={todoState} delTodo={delTodo} toggleTodo={toggleTodo} />
       <TodoCreate addTodo={addTodo} />
     </Container>
   );

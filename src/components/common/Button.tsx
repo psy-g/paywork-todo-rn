@@ -9,12 +9,20 @@ interface StyledButtonProps {
   title?: string | null;
   btnWidth?: any;
   btnIcon?: any;
+  btnColor?: any;
 }
 
-const Button: React.FC<StyledButtonProps> = ({ onPress, bgColor, title, btnWidth, btnIcon }) => {
+const Button: React.FC<StyledButtonProps> = ({
+  onPress,
+  bgColor,
+  title,
+  btnWidth,
+  btnIcon,
+  btnColor,
+}) => {
   return (
     <ButtonContainer onPress={onPress} bgColor={bgColor} btnWidth={btnWidth}>
-      {title ? <ButtonText>{title}</ButtonText> : <Icon icon={btnIcon}></Icon>}
+      {title ? <ButtonText>{title}</ButtonText> : <Icon icon={btnIcon} btnColor={btnColor}></Icon>}
     </ButtonContainer>
   );
 };
@@ -31,9 +39,12 @@ const ButtonContainer = styled.TouchableOpacity<StyledButtonProps>`
 const ButtonText = styled.Text`
   font-size: 16px;
   text-align: center;
+  color: #fafafa;
 `;
 
-const Icon = styled(FontAwesomeIcon)`
+const Icon = styled(FontAwesomeIcon)<{ btnColor: boolean }>`
   justify-content: center;
   align-items: center;
+  color: ${(props) => (props.btnColor ? '#33bb77' : 'black')};
+  /* color: ${(props) => (props.btnColor ? '#33bb77' : '#f44336')}; */
 `;
