@@ -1,4 +1,10 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, FETCH_TODOS_REQUEST, FETCH_TODOS_FAIL } from './types';
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  TOGGLE_TODO,
+  FETCH_TODOS_REQUEST,
+  FETCH_TODOS_FAIL,
+} from '@/store/todos/types';
 
 // 투두 추가 액션 생성함수입니다.
 export const addTodo = (newTodo: string) => {

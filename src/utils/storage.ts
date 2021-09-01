@@ -1,4 +1,4 @@
-import { Itodo } from '../types';
+import { Itodo } from '@/types';
 import AsyncStorage from '@react-native-community/async-storage';
 
 type StorageValue = Itodo[] | null;

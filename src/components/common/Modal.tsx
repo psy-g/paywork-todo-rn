@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal } from 'react-native';
 import styled from 'styled-components/native';
 
-import Button from './Button';
+import Button from 'components/common/Button';
 
 interface StyledModalProps {
   modalVisible: boolean;

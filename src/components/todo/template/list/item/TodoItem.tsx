@@ -3,10 +3,10 @@ import styled from 'styled-components/native';
 import { useDispatch } from 'react-redux';
 import { faTrashAlt, faCheck } from '@fortawesome/free-solid-svg-icons';
 
-import Button from '../../../../common/Button';
-import ModalComponent from '../../../../common/Modal';
-import { Itodo } from '../../../../../types';
-import { deleteTodo, toggleTodo } from '../../../../../store/todos/actions';
+import Button from '@/components/common/Button';
+import ModalComponent from '@/components/common/Modal';
+import { Itodo } from '@/types';
+import { deleteTodo, toggleTodo } from '@/store/todos/actions';
 
 interface TodoItemProps {
   todo: Itodo;

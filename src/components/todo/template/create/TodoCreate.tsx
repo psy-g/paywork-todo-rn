@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import { useDispatch } from 'react-redux';
 
-import Button from '../../../common/Button';
-import ModalComponent from '../../../common/Modal';
-import { addTodo } from '../../../../store/todos/actions';
+import Button from '@/components/common/Button';
+import ModalComponent from '@/components/common/Modal';
+import { addTodo } from '@/store/todos';
 
 // 투두 추가 컴포넌트입니다.(화면 하단)
 const TodoCreate: React.FC = () => {
