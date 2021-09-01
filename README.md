@@ -44,8 +44,7 @@
 ```bash
 # install dependencies
 $ npm install
-# serve with hot reload at localhost:3000
-$ npm run start
+$ npm run android
 ```
 
 <br>
@@ -53,7 +52,7 @@ $ npm run start
 
 ## 📌 Project Download Link(android)
 
-<!-- <https:///> -->
+<!-- <https://nonstop-crustacean-495.notion.site/Assignment-9-74396b37aaa44afea38d9b3859c3287f> -->
 
 <br>
 
