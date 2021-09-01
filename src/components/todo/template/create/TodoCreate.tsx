@@ -1,26 +1,18 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
+import { useDispatch } from 'react-redux';
 
 import Button from '../../../common/Button';
 import ModalComponent from '../../../common/Modal';
-import { Itodo } from '../../../../types';
-// import ModalComponent from '../../../common/Modal';
-// import { Itodo } from '../../../../types';
+import { addTodo } from '../../../../store/todos/actions';
 
-interface TodoCreateProps {
-  addTodo: (newTodo: Itodo) => void;
-}
-
-const TodoCreate: React.FC<TodoCreateProps> = ({ addTodo }) => {
+const TodoCreate: React.FC = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const dispatch = useDispatch();
 
   const handlerSubmit = () => {
-    addTodo({
-      id: 105,
-      content: inputValue,
-      isCheck: false,
-    });
+    dispatch(addTodo(inputValue));
   };
 
   return (

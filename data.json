@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "content": "리액트 네이티브",
+      "isCheck": false
+    },
+    {
+      "id": 2,
+      "content": "타입스크립트",
+      "body": false
+    },
+    {
+      "id": 3,
+      "content": "리덕스",
+      "body": false
+    }
+  ]
+}

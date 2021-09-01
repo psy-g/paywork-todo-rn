@@ -1,41 +1,45 @@
 import { useState, useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, RootStateOrAny } from 'react-redux';
 
 import { Itodo } from '../../types';
-// import { RootReducerType } from '../../modules';
-// import { increaseAsync } from '../../modules/counter';
-// import { getTodosStart } from '../../modules/todos';
 import { getStorage, setStorage } from '../../utils/storage';
 
 import TODOS from '../../constant/dummy.json';
 
+//
+import { deleteTodo } from '../../store/todos/actions';
+
 interface TodoServiceReturn {
   todoState: Itodo[];
-  addTodo: (newTodo: Itodo) => void;
-  delTodo: (id: number) => void;
-  toggleTodo: (id: number) => void;
+  // addTodo: (newTodo: Itodo) => void;
+  // delTodo: (id: number) => void;
+  // toggleTodo: (id: number) => void;
+  // todos: any;
 }
 
+// 투두 서비스에 필요한 기능 모음입니다.
 export const useTodoService = (): TodoServiceReturn => {
   const [todoState, setTodoState] = useState<Itodo[]>([]);
-  // const todoState = useSelector((state: RootReducerType) => state.todos);
-  // const dispatch = useDispatch();
+  // const todos = useSelector((state: RootStateOrAny) => state.Todos);
 
   useEffect(() => {
     initTodo();
   }, []);
 
+  // console.log('todos', todos);
+
   useEffect(() => {
-    // console.log('state 변경', todoState);
     saveTodo();
   }, [todoState]);
 
+  // 첫 실행 시에 투두 목록을 가져오기 위한 함수입니다.
   const initTodo = async () => {
     const getData = ((await getStorage('todos')) || TODOS) as Itodo[];
 
     setTodoState(getData);
   };
 
+  // 스토리지에 투두를 저장합니다.
   const saveTodo = () => {
     setStorage('todos', todoState);
   };
@@ -69,8 +73,9 @@ export const useTodoService = (): TodoServiceReturn => {
 
   return {
     todoState,
-    addTodo,
-    delTodo,
-    toggleTodo,
+    // addTodo,
+    // delTodo,
+    // toggleTodo,
+    // todos,
   };
 };
