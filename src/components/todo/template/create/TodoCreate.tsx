@@ -3,9 +3,23 @@ import styled from 'styled-components/native';
 
 import Button from '../../../common/Button';
 import ModalComponent from '../../../common/Modal';
+import { Itodo } from '../../../../types';
 
-const TodoCreate = () => {
+interface TodoCreateProps {
+  addTodo: (newTodo: Itodo) => void;
+}
+
+const TodoCreate: React.FC<TodoCreateProps> = ({ addTodo }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+
+  const handlerSubmit = () => {
+    addTodo({
+      id: 105,
+      content: inputValue,
+      isCheck: false,
+    });
+  };
 
   return (
     <>
@@ -22,6 +36,8 @@ const TodoCreate = () => {
         modalHeader="Add a new task"
         modalBody="컨텐츠"
         onTouchEnd={() => setModalVisible(false)}
+        onPress={handlerSubmit}
+        setState={setInputValue}
       />
     </>
   );

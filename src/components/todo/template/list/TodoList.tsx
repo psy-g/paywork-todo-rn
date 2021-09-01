@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { Alert } from 'react-native';
+// import { Alert } from 'react-native';
 import styled from 'styled-components/native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faTrashAlt, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 import Button from '../../../common/Button';
 import ModalComponent from '../../../common/Modal';
-import { useTodoService } from '../../TodoService';
+import { Itodo } from '../../../../types';
 
-import TODOS from '../../../../constant/dummy.json';
+interface TodoListProps {
+  todos: Itodo[];
+}
 
-const TodoList: React.FC = () => {
-  const { todoState } = useTodoService();
+const TodoList: React.FC<TodoListProps> = ({ todos }) => {
   const [btnSelect, setBtnSelect] = useState({
-    todo: false,
     progress: false,
     done: false,
   });
@@ -29,18 +29,16 @@ const TodoList: React.FC = () => {
   //   ]);
   // };
 
-  // console.log('todoState', TODOS);
-
   const btnClick = (target: string): void => {
     switch (target) {
-      case 'todo':
-        setBtnSelect({ progress: false, done: false, todo: !btnSelect.todo ? true : false });
-        return;
+      // case 'todo':
+      //   setBtnSelect({ progress: false, done: false, todo: !btnSelect.todo ? true : false });
+      //   return;
       case 'progress':
-        setBtnSelect({ todo: false, done: false, progress: !btnSelect.progress ? true : false });
+        setBtnSelect({ done: false, progress: !btnSelect.progress ? true : false });
         return;
       case 'done':
-        setBtnSelect({ todo: false, progress: false, done: !btnSelect.done ? true : false });
+        setBtnSelect({ progress: false, done: !btnSelect.done ? true : false });
         return;
     }
   };
@@ -48,15 +46,15 @@ const TodoList: React.FC = () => {
   return (
     <>
       <ListBlock>
-        <InProgressStatus btnSelect={btnSelect.todo}>
+        <InProgressStatus btnSelect={btnSelect.progress}>
           <Button
-            onPress={() => btnClick('todo')}
+            onPress={() => btnClick('progress')}
             title="InProgress"
             bgColor="red"
             btnWidth="80%"
           />
           <ScrollView>
-            {TODOS.map(
+            {todos.map(
               (todo, idx) =>
                 !todo.isCheck && (
                   <Items>
@@ -73,15 +71,10 @@ const TodoList: React.FC = () => {
             )}
           </ScrollView>
         </InProgressStatus>
-        <DoneStatus btnSelect={btnSelect.progress}>
-          <Button
-            onPress={() => btnClick('progress')}
-            title="Done"
-            bgColor="yellow"
-            btnWidth="80%"
-          />
+        <DoneStatus btnSelect={btnSelect.done}>
+          <Button onPress={() => btnClick('done')} title="Done" bgColor="yellow" btnWidth="80%" />
           <ScrollView>
-            {TODOS.map(
+            {todos.map(
               (todo, idx) =>
                 todo.isCheck && (
                   <Items>
