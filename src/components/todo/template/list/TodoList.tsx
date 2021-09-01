@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, RootStateOrAny } from 'react-redux';
 import styled from 'styled-components/native';
 
-import Button from '../../../common/Button';
-import TodoItem from './item/TodoItem';
+import Button from '@/components/common/Button';
+import TodoItem from 'components/todo/template/list/item/TodoItem';
 
 // 투두 목록 컴포넌트입니다.(화면 중단)
 // 리덕스 스토어에서 상태를 가져와 바로 아래 아이템 컴포넌트로 map을 돌려 내려줍니다.

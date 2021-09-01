@@ -1,6 +1,6 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, FETCH_TODOS_FAIL } from './types';
-// import { Itodo } from '../../types';
-import TODOS from '../../constant/dummy.json';
+import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, FETCH_TODOS_FAIL } from '@/store/todos/types';
+import TODOS from 'constant/dummy.json';
+// import { Itodo } from 'types';
 
 const initialState = TODOS;
 // const initialState: Itodo[] = [];
