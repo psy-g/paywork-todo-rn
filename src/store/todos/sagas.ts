@@ -1,18 +1,17 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { FETCH_TODOS_REQUEST } from './types';
-import { addTodo } from './actions';
+import { addTodo, fetchTodosFail } from './actions';
 import { Server } from '../../server';
 
+// call 헬퍼함수를 이용해 함수가 반환될 때까지 기다리고 처리합니다(비동기처리)
 export function* fetchTodos(action) {
   try {
     const { id } = action.payload;
-    // const { data } = yield call(Server.get, `todo/${id}`);
     const { data } = yield call(Server.get, `todo/${id}`);
-
     const addTodoAction = addTodo(data);
     yield put(addTodoAction);
   } catch (e) {
-    console.error(e);
+    yield put(fetchTodosFail());
   }
 }
 

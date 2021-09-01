@@ -6,17 +6,14 @@ import { faTrashAlt, faCheck } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../../../common/Button';
 import ModalComponent from '../../../../common/Modal';
 import { Itodo } from '../../../../../types';
-
-//
 import { deleteTodo, toggleTodo } from '../../../../../store/todos/actions';
 
 interface TodoItemProps {
   todo: Itodo;
-  // delTodo: (id: number) => void;
-  // toggleTodo: (id: number) => void;
 }
 
-// const TodoItem: React.FC<TodoItemProps> = ({ todo, delTodo, toggleTodo }) => {
+// 투두 아이템 컴포넌트입니다.(화면 중단)
+// 투두 목록 컴포넌트로부터 상태를 넘겨 받아 처리합니다.
 const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
   const { id, content, isCheck } = todo;
   const [modalVisible, setModalVisible] = useState(false);

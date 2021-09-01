@@ -3,14 +3,16 @@ import styled from 'styled-components/native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 interface StyledButtonProps {
-  onPress?: any;
-  bgColor?: any;
+  bgColor?: string;
   title?: string | null;
-  btnWidth?: any;
+  btnWidth?: string;
+  btnColor?: boolean;
   btnIcon?: any;
-  btnColor?: any;
+  onPress?: any;
 }
 
+// 공통 버튼 컴포넌트입니다.
+// onPress로 핸들러를 넘겨 받아 클릭 이벤트를 실행합니다.
 const Button: React.FC<StyledButtonProps> = ({
   onPress,
   bgColor,
@@ -45,5 +47,4 @@ const Icon = styled(FontAwesomeIcon)<{ btnColor: boolean }>`
   justify-content: center;
   align-items: center;
   color: ${(props) => (props.btnColor ? '#33bb77' : 'black')};
-  /* color: ${(props) => (props.btnColor ? '#33bb77' : '#f44336')}; */
 `;

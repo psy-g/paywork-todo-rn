@@ -1,7 +1,9 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, FETCH_TODOS_REQUEST, FETCH_TODOS_FAIL } from './types';
+import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, FETCH_TODOS_FAIL } from './types';
+// import { Itodo } from '../../types';
 import TODOS from '../../constant/dummy.json';
 
 const initialState = TODOS;
+// const initialState: Itodo[] = [];
 
 // 1. 투두를 추가하여 기존 상태에 추가합니다.
 // 2. 선택 된 투두를 삭제하여 기존 상태에서 제거합니다.
@@ -28,6 +30,11 @@ export default (state = initialState, action) => {
 
       return newState;
     }
+
+    case FETCH_TODOS_FAIL:
+      return {
+        ...state,
+      };
 
     default:
       return state;

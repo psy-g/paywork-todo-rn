@@ -6,6 +6,7 @@ import Button from '../../../common/Button';
 import ModalComponent from '../../../common/Modal';
 import { addTodo } from '../../../../store/todos/actions';
 
+// 투두 추가 컴포넌트입니다.(화면 하단)
 const TodoCreate: React.FC = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -20,7 +21,7 @@ const TodoCreate: React.FC = () => {
       <CreateBlock>
         <Button
           title="Add a new task"
-          bgColor="#6f42c1"
+          bgColor="#FFBC42"
           btnWidth="50%"
           onPress={() => setModalVisible(!modalVisible)}
         />

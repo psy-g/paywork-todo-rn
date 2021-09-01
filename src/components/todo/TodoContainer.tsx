@@ -1,19 +1,13 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import styled from 'styled-components/native';
 
 import TodoHead from './template/head/TodoHead';
 import TodoCreate from './template/create/TodoCreate';
 import TodoList from './template/list/TodoList';
 
-import { requestFetchTodos } from '../../store/todos/actions';
-
+// 투두 컨테이너 컴포넌트입니다.
+// 투두 상단(제목), 중단(투두 리스트), 하단(투두 추가) 컴포넌트를 가지고 있습니다.
 const TodoContainer: React.FC = () => {
-  const dispatch = useDispatch();
-
-  const fetchTodos = requestFetchTodos(2);
-  // console.log('dispatch', dispatch(fetchTodos));
-
   return (
     <Container>
       <TodoHead />

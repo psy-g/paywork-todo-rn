@@ -5,13 +5,8 @@ import styled from 'styled-components/native';
 import Button from '../../../common/Button';
 import TodoItem from './item/TodoItem';
 
-// interface TodoListProps {
-// todos: Itodo[];
-// delTodo: (id: number) => void;
-// toggleTodo: (id: number) => void;
-// }
-
-// const TodoList: React.FC<TodoListProps> = ({ todos }) => {
+// 투두 목록 컴포넌트입니다.(화면 중단)
+// 리덕스 스토어에서 상태를 가져와 바로 아래 아이템 컴포넌트로 map을 돌려 내려줍니다.
 const TodoList: React.FC = () => {
   const todoState = useSelector((state: RootStateOrAny) => state.Todos);
   const [btnSelect, setBtnSelect] = useState({
@@ -59,22 +54,17 @@ export default TodoList;
 
 const ListBlock = styled.View`
   flex: 6;
-  /* background-color: skyblue; */
   background-color: #3c4858;
 `;
 
 const InProgressStatus = styled.View<{ btnSelect: boolean }>`
-  /* flex: ${(props) => (props.btnSelect ? 6 : 0.15)}; */
   align-items: center;
   height: ${(props) => (props.btnSelect ? '88%' : '12%')};
-  /* height: ${(props) => (props.btnSelect ? '76%' : '12%')}; */
 `;
 
 const DoneStatus = styled.View<{ btnSelect: boolean }>`
-  /* flex: 3; */
   align-items: center;
   height: ${(props) => (props.btnSelect ? '88%' : '12%')};
-  /* height: ${(props) => (props.btnSelect ? '76%' : '12%')}; */
 `;
 
 const ScrollView = styled.ScrollView`
