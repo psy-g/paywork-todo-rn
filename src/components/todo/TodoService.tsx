@@ -12,6 +12,7 @@ import TODOS from '../../constant/dummy.json';
 interface TodoServiceReturn {
   todoState: Itodo[];
   addTodo: (newTodo: Itodo) => void;
+  delTodo: (id: number) => void;
 }
 
 export const useTodoService = (): TodoServiceReturn => {
@@ -51,8 +52,13 @@ export const useTodoService = (): TodoServiceReturn => {
     );
   };
 
+  const delTodo = (id: number): void => {
+    setTodoState((prevState) => prevState.filter((todo: Itodo) => todo.id !== id));
+  };
+
   return {
     todoState,
     addTodo,
+    delTodo,
   };
 };

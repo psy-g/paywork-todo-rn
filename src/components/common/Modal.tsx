@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Modal, View } from 'react-native';
+import React from 'react';
+import { Modal } from 'react-native';
 import styled from 'styled-components/native';
 
 import Button from './Button';
@@ -18,7 +18,6 @@ const ModalComponent: React.FC<StyledModalProps> = ({
   modalVisible,
   onTouchEnd,
   modalHeader,
-  modalBody,
   onPress,
   setState,
 }) => {
@@ -31,7 +30,6 @@ const ModalComponent: React.FC<StyledModalProps> = ({
               <ModalText>{modalHeader}</ModalText>
             </ContentHeader>
             <ContentBody>
-              {/* <ModalText>{modalBody}</ModalText> */}
               <InputForm
                 placeholder="할 일을 입력해주세요"
                 onChangeText={(input) => setState(input)}></InputForm>
@@ -58,8 +56,6 @@ const Container = styled.View`
 
 const Space = styled.View`
   position: absolute;
-  /* background-color: #000000;
-  opacity: 0.8; */
   background-color: #fafafa;
   width: 100%;
   height: 50%;
