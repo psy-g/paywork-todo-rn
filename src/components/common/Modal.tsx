@@ -11,9 +11,10 @@ interface StyledModalProps {
   modalBody?: any;
   onPress?: any;
   setState?: any;
-  // setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+// 공통 모달 컴포넌트입니다.
+// 투두 추가, 투두 삭제 시에 넘겨 받는 값에 따라 다른 모달이 나타납니다.
 const ModalComponent: React.FC<StyledModalProps> = ({
   modalVisible,
   onTouchEnd,
@@ -76,12 +77,12 @@ const ContentWrapper = styled.View`
 `;
 
 const ContentHeader = styled.View`
-  flex: 3;
+  flex: 2;
   justify-content: center;
 `;
 
 const ContentBody = styled.View`
-  flex: 7;
+  flex: 7.5;
   justify-content: center;
 `;
 
@@ -90,16 +91,16 @@ const BtnWrapper = styled.View`
   flex-direction: row;
   justify-content: space-around;
   width: 60%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 
 const ModalText = styled.Text`
-  font-size: 16px;
+  font-size: 20px;
   text-align: center;
 `;
 
 const InputForm = styled.TextInput`
-  background-color: #6f42c1;
-  color: #adb5bd;
+  background-color: #3c4858;
+  color: #fafafa;
   font-weight: bold;
 `;

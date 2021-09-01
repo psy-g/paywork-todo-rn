@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
+// 투두 제목 컴포넌트입니다.(화면 상단)
 const TodoHead: React.FC = () => {
   return (
     <HeadBlock>
