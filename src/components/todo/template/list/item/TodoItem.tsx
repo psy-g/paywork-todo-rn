@@ -10,21 +10,32 @@ import { Itodo } from '../../../../../types';
 interface TodoItemProps {
   todo: Itodo;
   delTodo: (id: number) => void;
+  toggleTodo: (id: number) => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ todo, delTodo }) => {
+const TodoItem: React.FC<TodoItemProps> = ({ todo, delTodo, toggleTodo }) => {
   const { id, content, isCheck } = todo;
   const [modalVisible, setModalVisible] = useState(false);
 
-  const hanlderRemove = () => {
+  const handlerRemove = () => {
     delTodo(id);
+  };
+
+  const handlerToggle = () => {
+    toggleTodo(id);
   };
 
   return (
     <>
       <Items>
         <TaskName>{content}</TaskName>
-        <Icon icon={faCheck} check={isCheck} />
+        <Button
+          bgColor="#eee"
+          btnWidth="15%"
+          btnIcon={faCheck}
+          onPress={handlerToggle}
+          btnColor={isCheck}
+        />
         <Button
           onPress={() => setModalVisible(!modalVisible)}
           bgColor="#eee"
@@ -34,10 +45,10 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, delTodo }) => {
       </Items>
       <ModalComponent
         modalVisible={modalVisible}
-        modalHeader="check delete"
+        modalHeader="삭제 확인"
         modalBody="정말 삭제하시겠습니까?"
         onTouchEnd={() => setModalVisible(false)}
-        onPress={hanlderRemove}
+        onPress={handlerRemove}
       />
     </>
   );
@@ -53,15 +64,10 @@ const Items = styled.View`
   background-color: #eee;
   padding-left: 10px;
   padding-right: 10px;
-  border-top-width: 1px;
+  border-bottom-width: 1px;
 `;
 
 const TaskName = styled.Text`
   font-size: 15px;
   flex: 6;
-`;
-
-const Icon = styled(FontAwesomeIcon)<{ check: boolean }>`
-  flex: 2;
-  color: ${(props) => (props.check ? '#06AF4A' : '#FF622A')};
 `;

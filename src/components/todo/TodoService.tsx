@@ -13,6 +13,7 @@ interface TodoServiceReturn {
   todoState: Itodo[];
   addTodo: (newTodo: Itodo) => void;
   delTodo: (id: number) => void;
+  toggleTodo: (id: number) => void;
 }
 
 export const useTodoService = (): TodoServiceReturn => {
@@ -25,7 +26,7 @@ export const useTodoService = (): TodoServiceReturn => {
   }, []);
 
   useEffect(() => {
-    console.log('state 변경', todoState);
+    // console.log('state 변경', todoState);
     saveTodo();
   }, [todoState]);
 
@@ -56,9 +57,20 @@ export const useTodoService = (): TodoServiceReturn => {
     setTodoState((prevState) => prevState.filter((todo: Itodo) => todo.id !== id));
   };
 
+  const toggleTodo = (id: number): void => {
+    const changeTodo = todoState.map((todo: Itodo) => {
+      todo.id === id && (todo.isCheck = !todo.isCheck);
+
+      return todo;
+    });
+
+    setTodoState(changeTodo);
+  };
+
   return {
     todoState,
     addTodo,
     delTodo,
+    toggleTodo,
   };
 };

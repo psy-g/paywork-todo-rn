@@ -4,6 +4,8 @@ import styled from 'styled-components/native';
 import Button from '../../../common/Button';
 import ModalComponent from '../../../common/Modal';
 import { Itodo } from '../../../../types';
+// import ModalComponent from '../../../common/Modal';
+// import { Itodo } from '../../../../types';
 
 interface TodoCreateProps {
   addTodo: (newTodo: Itodo) => void;
@@ -26,15 +28,14 @@ const TodoCreate: React.FC<TodoCreateProps> = ({ addTodo }) => {
       <CreateBlock>
         <Button
           title="Add a new task"
-          bgColor="#33bb77"
+          bgColor="#6f42c1"
           btnWidth="50%"
           onPress={() => setModalVisible(!modalVisible)}
         />
       </CreateBlock>
       <ModalComponent
         modalVisible={modalVisible}
-        modalHeader="Add a new task"
-        modalBody="컨텐츠"
+        modalHeader="할 일 추가"
         onTouchEnd={() => setModalVisible(false)}
         onPress={handlerSubmit}
         setState={setInputValue}
