@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Modal, View } from 'react-native';
+import React from 'react';
+import { Modal } from 'react-native';
 import styled from 'styled-components/native';
 
 import Button from './Button';
@@ -9,6 +9,8 @@ interface StyledModalProps {
   onTouchEnd: any;
   modalHeader?: string;
   modalBody?: any;
+  onPress?: any;
+  setState?: any;
   // setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -16,7 +18,8 @@ const ModalComponent: React.FC<StyledModalProps> = ({
   modalVisible,
   onTouchEnd,
   modalHeader,
-  modalBody,
+  onPress,
+  setState,
 }) => {
   return (
     <Modal animationType="slide" transparent={true} visible={modalVisible}>
@@ -27,11 +30,13 @@ const ModalComponent: React.FC<StyledModalProps> = ({
               <ModalText>{modalHeader}</ModalText>
             </ContentHeader>
             <ContentBody>
-              <ModalText>{modalBody}</ModalText>
+              <InputForm
+                placeholder="할 일을 입력해주세요"
+                onChangeText={(input) => setState(input)}></InputForm>
             </ContentBody>
           </ContentWrapper>
           <BtnWrapper onTouchEnd={onTouchEnd}>
-            <Button title="확인" bgColor="#bba733" btnWidth="30%" />
+            <Button onPress={onPress} title="확인" bgColor="#bba733" btnWidth="30%" />
             <Button title="취소" bgColor="#33bb77" btnWidth="30%" />
           </BtnWrapper>
         </Space>
@@ -51,8 +56,6 @@ const Container = styled.View`
 
 const Space = styled.View`
   position: absolute;
-  /* background-color: #000000;
-  opacity: 0.8; */
   background-color: #fafafa;
   width: 100%;
   height: 50%;
@@ -87,4 +90,9 @@ const BtnWrapper = styled.View`
 const ModalText = styled.Text`
   font-size: 16px;
   text-align: center;
+`;
+
+const InputForm = styled.TextInput`
+  background-color: skyblue;
+  color: black;
 `;

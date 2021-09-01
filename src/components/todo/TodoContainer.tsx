@@ -1,16 +1,19 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
+import { useTodoService } from './TodoService';
 import TodoHead from './template/head/TodoHead';
 import TodoCreate from './template/create/TodoCreate';
 import TodoList from './template/list/TodoList';
 
 const TodoContainer: React.FC = () => {
+  const { todoState, addTodo, delTodo } = useTodoService();
+
   return (
     <Container>
       <TodoHead />
-      <TodoList />
-      <TodoCreate />
+      <TodoList todos={todoState} delTodo={delTodo} />
+      <TodoCreate addTodo={addTodo} />
     </Container>
   );
 };
